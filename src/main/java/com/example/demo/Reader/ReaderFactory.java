@@ -4,6 +4,7 @@ import com.example.demo.Book.Book;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ReaderFactory {
 
@@ -24,7 +25,7 @@ public class ReaderFactory {
             reader = createTeacher();
         }
         else reader = createStudent();
-        reader.setBooks(booksList);
+        reader.setBooks(genBooks(booksList));
         return reader;
     }
 
@@ -42,5 +43,14 @@ public class ReaderFactory {
     private String randomString(String[] bookAttribute) {
         String selected = bookAttribute[(int) (bookAttribute.length * Math.random())];
         return selected;
+    }
+
+    public ArrayList genBooks(ArrayList<Book> booksList) {
+        int num = ThreadLocalRandom.current().nextInt(3, 11);
+        ArrayList<Book> books = new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            books.add(booksList.get(ThreadLocalRandom.current().nextInt(0, booksList.size())));
+        }
+        return books;
     }
 }

@@ -39,4 +39,9 @@ public abstract class Reader {
     public void setBooks(ArrayList<Book> books) {
         this.books = books;
     }
+
+    public String getName() {
+        return first_name + " " + second_name;
+    }
+
 }

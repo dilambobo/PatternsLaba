@@ -66,9 +66,9 @@ public class Controller {
 
         // заполнение дерева читателями
         for (Reader reader : readers) {
-            TreeItem<String> branchItem = new TreeItem<>(reader.getFirst_name() + " " + reader.getSecond_name());
+            TreeItem<String> branchItem = new TreeItem<>(reader.getName());
             if (reader.getClass().getName().equals
-                    ("/Users/dazorina/Documents/private/demo/src/main/java/com/example/demo/Reader/Student.java")) {
+                    ("com.example.demo.Reader.Student")) {
                 studentBranchItem.getChildren().add(branchItem);
                 amountOfStudent++;
             }
@@ -81,12 +81,12 @@ public class Controller {
                 Book book = (Book) obj;
                 TreeItem<String> bookItem = new TreeItem<>(book.getName());
                 branchItem.getChildren().add(bookItem);
-                TreeItem<String> leafItemType = new TreeItem<>("type : " + book.getClass().getName().substring(book.getClass().getName().length() - 6).replace(".", ""));
-                bookItem.getChildren().add(leafItemType);
+                //TreeItem<String> leafItemType = new TreeItem<>("type : " + book.getClass().getName());
+                //bookItem.getChildren().add(leafItemType);
                 TreeItem<String> leafItemLang = new TreeItem<>("lang : " + book.getLanguage());
                 bookItem.getChildren().add(leafItemLang);
 
-                if (book.getClass().getName().equals("/Users/dazorina/Documents/private/demo/src/main/java/com/example/demo/Book/EnglishEducationBook.java")) {
+                if (book.getClass().getName().equals("com.example.demo.Book.EnglishEducationBook")) {
                     EnglishEducationBook book1 = (EnglishEducationBook) book;
 
                     TreeItem<String> leafItemName = new TreeItem<>("author : " + book1.getName());
@@ -99,20 +99,31 @@ public class Controller {
                     bookItem.getChildren().add(leafItemLevel);
                 }
 
-                else if (book.getClass().getName().equals("/Users/dazorina/Documents/private/demo/src/main/java/com/example/demo/Book/EnglishFictionBook.java")) {
+                if (book.getClass().getName().equals("com.example.demo.Book.classes.EnglishFictionBook")) {
                     EnglishFictionBook book2 = (EnglishFictionBook) book;
                     TreeItem<String> leafItemName = new TreeItem<>("author : " + book2.getName());
                     bookItem.getChildren().add(leafItemName);
 
                 }
-                else if (book.getClass().getName().equals("/Users/dazorina/Documents/private/demo/src/main/java/com/example/demo/Book/RussianFictionBook.java")) {
+                if (book.getClass().getName().equals("com.example.demo.Book.classes.RussianFictionBook")) {
                     RussianFictionBook book3 = (RussianFictionBook) book;
                     TreeItem<String> leafItemAuthor = new TreeItem<>("author : " + book3.getAuthor());
                     bookItem.getChildren().add(leafItemAuthor);
                 }
+
+                if (book.getClass().getName().equals("com.example.demo.Book.classes.RussianEducationBook")) {
+                    RussianEducationBook book4 = (RussianEducationBook) book;
+
+                    TreeItem<String> leafItemAuthor = new TreeItem<>("author : " + book4.getAuthor());
+                    bookItem.getChildren().add(leafItemAuthor);
+
+                    TreeItem<String> leafItemBookType = new TreeItem<>("book type : " + book4.getBook_type());
+                    bookItem.getChildren().add(leafItemBookType);
+                }
+                else {
+                }
             });
     }
-
         studentBranchItem.setValue("Студенты (" + amountOfStudent + ")");
         teacherBranchItem.setValue("Преподаватели (" + amountOfTeacher + ")");
 

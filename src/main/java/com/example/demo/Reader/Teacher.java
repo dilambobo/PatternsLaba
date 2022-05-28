@@ -16,4 +16,9 @@ public class Teacher extends Reader{
     public void setMiddle_name(String middle_name) {
         this.middle_name = middle_name;
     }
+
+    @Override
+    public String getName() {
+        return getFirst_name() + " " + middle_name + " " + getSecond_name();
+    }
 }
