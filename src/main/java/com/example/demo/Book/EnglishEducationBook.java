@@ -10,4 +10,20 @@ public class EnglishEducationBook extends Book{
         this.university = university;
         this.level = level;
     }
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    public char getLevel() {
+        return level;
+    }
+
+    public void setLevel(char level) {
+        this.level = level;
+    }
 }

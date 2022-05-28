@@ -4,6 +4,10 @@ public class BookFactory {
 
     ImportBook importBook;
 
+    public BookFactory(ImportBook importBook) {
+        this.importBook = importBook;
+    };
+
     public Book createBook() {
         Book book;
         int randomizer = (int) (Math.random()*100);
@@ -69,7 +73,7 @@ public class BookFactory {
     private String randomString(String[] bookAttribute) {
         //int bookAttributeLength = bookAttribute.length;
         //int randomNumber = (int) (Math.random()*10*bookAttributeLength + 1);
-        String selected = bookAttribute[(int) (Math.random()*10*bookAttribute.length + 1)];
+        String selected = bookAttribute[(int) (bookAttribute.length * Math.random())];
         return selected;
     }
 }

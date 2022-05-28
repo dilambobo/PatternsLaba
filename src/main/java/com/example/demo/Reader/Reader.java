@@ -2,13 +2,14 @@ package com.example.demo.Reader;
 
 import com.example.demo.Book.Book;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public abstract class Reader {
 
     private String first_name;
     private String second_name;
-    HashSet<Book> books = new HashSet<>();
+    ArrayList<Book> books = new ArrayList<>();
 
     public Reader (String first_name, String second_name) {
         this.first_name = first_name;
@@ -31,11 +32,11 @@ public abstract class Reader {
         this.second_name = second_name;
     }
 
-    public HashSet<Book> getBooks() {
+    public ArrayList<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(HashSet<Book> books) {
+    public void setBooks(ArrayList<Book> books) {
         this.books = books;
     }
 }
