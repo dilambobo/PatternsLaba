@@ -11,7 +11,7 @@ public class BookFactory {
     public Book createBook() {
         Book book;
         int randomizer = (int) (Math.random()*100);
-        if (randomizer > 0 && randomizer < 25) {
+        if (randomizer > 75 && randomizer < 90) {
             book = createEnglishEducationBook();
         }
         if (randomizer > 25 && randomizer < 50) {

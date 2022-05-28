@@ -8,6 +8,7 @@ public class RussianEducationBook extends Book{
     public RussianEducationBook(String name, String language, String author, String book_type) {
         super(name, language);
         this.author = author;
+        this.book_type = book_type;
     }
 
     public String getAuthor() {
