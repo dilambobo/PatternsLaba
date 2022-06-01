@@ -10,20 +10,27 @@ public class BookFactory {
 
     public Book createBook() {
         Book book;
-        int randomizer = (int) (Math.random()*100);
-        if (randomizer > 75 && randomizer < 90) {
-            book = createEnglishEducationBook();
+        int randomizer = (int) (Math.floor(Math.random()*4)) ;
+
+        switch (randomizer){
+            case (0): {
+                book = createEnglishEducationBook();
+                break;
+            }
+            case (1): {
+                book = createEnglishEducationBook();
+                break;
+            }
+            case (2): {
+                book = createRussianEducationBook();
+                break;
+            }
+            case (3): {
+                book = createRussianFictionBook();
+                break;
+            }
+            default: book = createEnglishEducationBook();
         }
-        if (randomizer > 25 && randomizer < 50) {
-            book = createEnglishFictionBook();
-        }
-        if (randomizer > 50 && randomizer < 75) {
-            book = createRussianEducationBook();
-        }
-        if (randomizer > 75 && randomizer < 100) {
-            book = createRussianFictionBook();
-        }
-        else book = createRussianEducationBook();
         return book;
     }
 
@@ -67,7 +74,6 @@ public class BookFactory {
                 randomString(importBook.getRussianFictionAuthors()),
                 book_type);
     }
-
 
     // метод для выбора случайного значения из массива данных о книге
     private String randomString(String[] bookAttribute) {

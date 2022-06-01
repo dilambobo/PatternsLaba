@@ -6,5 +6,4 @@ public class EnglishFictionBook extends Book{
         super(name, language);
     }
 
-
 }

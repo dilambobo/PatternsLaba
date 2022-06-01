@@ -26,7 +26,7 @@ public class Controller {
     int amountOfBooks = 300;
     int amountOfUsers = 200;
     ArrayList<Reader> readers = new ArrayList<>();
-    ArrayList<Book> books = new ArrayList<Book>();
+    ArrayList<Book> books = new ArrayList<>();
 
     @FXML
     protected void createTree() throws IOException, InvalidFormatException {
@@ -48,7 +48,6 @@ public class Controller {
         for (int i = 0; i < amountOfUsers; i++) {
             readers.add(readerFactory.createReader(books));
         }
-
         buildTree();
     }
 
@@ -98,7 +97,7 @@ public class Controller {
                     TreeItem<String> leafItemUniversity = new TreeItem<>("university : " + book1.getUniversity());
                     bookItem.getChildren().add(leafItemUniversity);
 
-                    TreeItem<String> leafItemLevel = new TreeItem<>("university : " + book1.getLevel());
+                    TreeItem<String> leafItemLevel = new TreeItem<>("degree : " + book1.getLevel());
                     bookItem.getChildren().add(leafItemLevel);
                 }
 
